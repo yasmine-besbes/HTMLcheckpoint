@@ -1,0 +1,80 @@
+/* Reset default browser styles */
+body, h1, h2, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar styles */
+nav {
+  background-color: #333;
+  color: #fff;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  padding: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Hero section styles */
+header {
+  background-image: url('hero-image.jpg');
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  padding: 100px;
+}
+
+header h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+header p {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+/* Section styles */
+section {
+  padding: 80px 40px;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+section p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+section ul {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+section ul li {
+  margin-bottom: 10px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
+}

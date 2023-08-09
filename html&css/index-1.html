@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jeu Sudoku</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    td {
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      border: 1px solid black;
+    }
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+  <script>
+    // Fonction pour vérifier si la grille de Sudoku est valide
+    function estGrilleValide(grille) {
+      // Vérification des lignes
+      for (var i = 0; i < 9; i++) {
+        var ligne = [];
+        for (var j = 0; j < 9; j++) {
+          var valeur = grille[i][j];
+          if (valeur !== 0 && ligne.includes(valeur)) {
+            return false;
+          }
+          ligne.push(valeur);
+        }
+      }
+
+      // Vérification des colonnes
+      for (var j = 0; j < 9; j++) {
+        var colonne = [];
+        for (var i = 0; i < 9; i++) {
+          var valeur = grille[i][j];
+          if (valeur !== 0 && colonne.includes(valeur)) {
+            return false;
+          }
+          colonne.push(valeur);
+        }
+      }
+
+      // Vérification des régions
+      for (var k = 0; k < 9; k++) {
+        var region = [];
+        for (var i = Math.floor(k / 3) * 3; i < Math.floor(k / 3) * 3 + 3; i++) {
+          for (var j = (k % 3) * 3; j < (k % 3) * 3 + 3; j++) {
+            var valeur = grille[i][j];
+            if (valeur !== 0 && region.includes(valeur)) {
+              return false;
+            }
+            region.push(valeur);
+          }
+        }
+      }
+
+      return true;
+    }
+
+    // Fonction pour afficher la grille de Sudoku
+    function afficherGrille(grille) {
+      var table = document.getElementById('grille');
+      table.innerHTML = '';
+
+      for (var i = 0; i < 9; i++) {
+        var row = document.createElement('tr');
+        for (var j = 0; j < 9; j++) {
+          var cell = document.createElement('td');
+          cell.textContent = grille[i][j];
+          if (grille[i][j] === 0) {
+            cell.addEventListener('click', function() {
+              this.classList.toggle('highlight');
+            });
+          }
+          row.appendChild(cell);
+        }
+        table.appendChild(row);
+      }
+    }
+
+    // Fonction pour résoudre la grille de Sudoku (algorithme de récursion)
+    function resoudreGrille(grille, i, j) {
+      if (i === 9) {
+        return true; // La grille est résolue
+      }
+
+      var prochainI = i;
+      var prochainJ = j + 1;
+      if (prochainJ === 9) {
+        prochainJ = 0;
+        prochainI++;
+      }
+
+      if (grille[i][j] !== 0) {
+        return resoudreGrille(grille, prochainI, prochainJ);
+      }
+
+      for (var valeur = 1; valeur <= 9; valeur++) {
+        grille[i][j] = valeur;
+        if (estGrilleValide(grille) && resoudreGrille(grille, prochainI, prochainJ)) {
+          return true;
+        }
+      }
+
+      grille[i][j] = 0; // Annuler l'affectation
+      return false;
+    }
+
+    // Fonction pour résoudre la grille de Sudoku (en utilisant l'algorithme de récursion)
+    function resoudre() {
+      var grille = [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0]
+      ];
+
+      if (resoudreGrille(grille, 0, 0)) {
+        afficherGrille(grille);
+        alert('La grille a été résolue !');
+      } else {
+        alert('La grille est insoluble !');
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Jeu Sudoku</h1>
+  <table id="grille"></table>
+  <br>
+  <button onclick="resoudre()">Résoudre</button>
+</body>
+</html>

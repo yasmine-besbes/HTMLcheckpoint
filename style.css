@@ -1,0 +1,160 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:midnightblue;
+    padding: 10px;
+    color:white;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .navbar li {
+    margin: 0 10px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: white;
+  } 
+  table {
+      border-collapse: collapse;
+      width: 100%;
+  }
+  
+  th, td {
+      border: 1px solid black;
+      padding: 10px;
+  }
+  h1{
+      text-align: center;
+      font-size: xx-large;
+      color:midnightblue;
+      
+  }
+  .my-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .my-form label {
+    margin-bottom: 5px;
+  }
+  
+  .my-form input,
+  .my-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+  }
+  
+  
+  .image-container {
+    float: left;
+    margin-left: 20px;
+  }
+
+  .section-wrapper {
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+.section-wrapper h2{
+  text-align: center;
+
+}
+#home{
+  background-image: url("OIP\ .jpg");
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  font-size: larger;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  
+}
+#home h1{
+  margin: 20px;
+  padding:70px;
+
+}
+
+.section-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 1;
+  padding: 20px;
+}
+
+.image-column {
+  max-width: 50%;
+}
+
+.paragraph-column {
+  max-width: 100%;
+  text-align: center;
+  float: left;
+  margin-right: 100px;
+}
+
+img {
+  width:400px;
+  height: 350px;
+  align-items: center;
+  margin-left: 100px;
+}
+  
+ 
+  
+  h2{
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-decoration-line: underline;
+      color: darkblue;
+  
+  }
+ 
+
+.section-content {
+    flex: 1;
+}
+
+.section-image {
+    max-width: 50px;
+    margin-left: 20px;
+}
+body{
+  background-color:gainsboro;
+}
+#video{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+#work{
+  font-size: larger;
+}
